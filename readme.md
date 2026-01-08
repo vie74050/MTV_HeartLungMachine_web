@@ -18,7 +18,6 @@ This web handler will:
 Using npm and webpack. Use `npm install` to get started.
 
 - For dev, use `npm run start` for watch mode.
-- To update the `Builds`, which contain the Unity builds, use `npm run update3d`.  This copies `./Builds` to `./uploads`.
 - To updatet the code, build using `npm run build` will bundle the web scripts to `./uploads/src/`.  
 
 ### Unity model handlers ###
@@ -40,47 +39,38 @@ Calls from Unity scene to web are handled by methods prefixed `FromUnity_` and m
 
 Which must correspond to the functions called in the **Unity Project** `Assets\Plugins\JSLibs`.
 
+## DEPLOYMENT ##
+
+### GitHub Pages Option ###
+
+Deploy bundle to `uploads` folder, use `npm run deploy`.  
+Webpack will package the bundles to `uploads`, and deploy to GitHub Pages (`gh-pages` branch).  
+
+### BCIT LMS (Private - requires access) Option ###
+
+If deploying to Learning Hub instead of GitHub, manually upload the `./uploads/Builds` to LMS shared files `scripts/interactive/UnityModelTaskViewer_HeartLungMachine`.
+
 ## USAGE ##
 
 ### Unity model set up ###
 
 **Unity Project** Repo: [gihub heartLungCo2Flushing](https://github.com/vie74050/heartLungCo2Flushing)
 
-See `Builds` folder.  The actual resources within are all built from the **Unity Project**, and not part of the scope of this repo.
+See `uploads/Builds` folder.  The actual resources within `Build`are all built from the **Unity Project**, and not part of the scope of this repo.
 
-The build folder for the Unity model should be put in `./Builds` and have the structure:
+The build folder for the Unity model should be put in `./uploads/Builds` and have the structure:
 
 ```text
 [project name]
-    |_ Build      --> generated files from Unity
-    |_ index.html --> based on WebGL Template specified in Unity project `Assets\WebGLTemplates\webD2LTable`
+    |_ Build      --> generated `gz` and `unityweb` files from copied Unity builds
+    |_ index.html --> loads src from server
+    |_ local.html --> loads src from local built files
+    |_ .htaccess  --> for server headers, compression handling
 ```
 
 Where the `[project name]` should be descriptive of the Unity build.
 
-**NB**:
-
-- You only need to create the main project folder `[project name]` and then build to that folder from Unity.  It will create the `Build` folder automatically and it's build artefacts will be named according to `[project name]`
-- `index.html` is build from the WebGL template from the Unity project.  It may be over-written by Unity build!!
-- Server hosting the model files need to be set up to serve gz compression.  See `.htaccess` file (add this to host).
-
-#### Template index.html ####
-
-Template for the `index.html` page is in the **Unity project**: `Assets\WebGLTemplates\webD2LTable` folder.  
-
-Make sure template has the proper bundle src url:
-
-```html
-    <link rel="stylesheet" href="https://vie74050.github.io/MTV_identifyErrors_web/src/bundle.css" />
-
-    <script 
-      src="https://vie74050.github.io/MTV_identifyErrors_web/src/bundle.js"
-      type="text/javascript"></script> 
-```
-
-This is where `src` path for `bundle` resources need to be made to point to uploads' host.
-
-##### Editable portion - html `<table>` #####
+### Editable portion - html `<table>` ###
 
 The `table` within the body intended to be be edited after build to include optional custom description overrides for items in the scene. Meant to be editable within LMS WYSIWYG editor so markup should be kept **barebones** table markup.
 
@@ -92,7 +82,7 @@ The first column is expected to be key string which references:
 
 The second column are the corresponding description texts.
 
-### HTML Table Features ###
+#### HTML Table Features ####
 
 e.g.
 
@@ -152,14 +142,3 @@ e.g.
 ```
 
 > \* Info promp and Show answers prompt: These are special optional keywords to use to over-ride default prompt texts.
-
-## DEPLOYMENT ##
-
-### Code ###
-
-Deploy bundle to `uploads` folder, use `npm run deploy`.  
-Webpack will package the bundles and copy the `Builds` folder contents to `uploads`, and deploy to GitHub Pages (`gh-pages` branch).  
-
-### BCIT LMS (Private - requires access) ###
-
-If deploying to Learning Hub instead of GitHub, manually upload the `./uploads/Builds` to LMS shared files `scripts/interactive/UnityModelTaskViewer_HeartLungMachine`.
