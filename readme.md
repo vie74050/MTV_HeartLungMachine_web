@@ -50,27 +50,26 @@ Webpack will package the bundles to `uploads`, and deploy to GitHub Pages (`gh-p
 
 If deploying to Learning Hub instead of GitHub, manually upload the `./uploads/Builds` to LMS shared files `scripts/interactive/UnityModelTaskViewer_HeartLungMachine`.
 
-## USAGE ##
-
-### Unity model set up ###
+## Unity model set up ##
 
 **Unity Project** Repo: [gihub heartLungCo2Flushing](https://github.com/vie74050/heartLungCo2Flushing)
 
-See `uploads/Builds` folder.  The actual resources within `Build`are all built from the **Unity Project**, and not part of the scope of this repo.
+The actual 3D model Unity files within `./uploads/Builds/[3D project name]/Build` are built from the **Unity Project**, and not part of the scope of this repo.
 
-The build folder for the Unity model should be put in `./uploads/Builds` and have the structure:
+The Unity model should be put in `./uploads/Builds` and have the structure:
 
 ```text
-[project name]
-    |_ Build      --> generated `gz` and `unityweb` files from copied Unity builds
+[3D project name]
+    |_ Build      --> the `gz` and/or `unityweb` files copied from Unity build
     |_ index.html --> loads src from server
     |_ local.html --> loads src from local built files
     |_ .htaccess  --> for server headers, compression handling
 ```
 
-Where the `[project name]` should be descriptive of the Unity build.
+- The `[3D project name]` should be descriptive of the Unity scene build.
+- If the server can handle `gz` format, then the `unityweb` is not required.
 
-### Editable portion - html `<table>` ###
+## Editable portion - html `<table>` ##
 
 The `table` within the body intended to be be edited after build to include optional custom description overrides for items in the scene. Meant to be editable within LMS WYSIWYG editor so markup should be kept **barebones** table markup.
 
@@ -82,7 +81,7 @@ The first column is expected to be key string which references:
 
 The second column are the corresponding description texts.
 
-#### HTML Table Features ####
+### HTML Table Features ###
 
 e.g.
 
