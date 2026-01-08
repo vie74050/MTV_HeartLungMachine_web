@@ -18,8 +18,8 @@ This web handler will:
 Using npm and webpack. Use `npm install` to get started.
 
 - For dev, use `npm run start` for watch mode.
-- To update the `Builds`, use `npm run update3d`.  This copies `./Builds` to `./uploads`.
-- For prod, build `npm run build` will bundle the scripts.  
+- To update the `Builds`, which contain the Unity builds, use `npm run update3d`.  This copies `./Builds` to `./uploads`.
+- To updatet the code, build using `npm run build` will bundle the web scripts to `./uploads/src/`.  
 
 ### Unity model handlers ###
 
@@ -44,7 +44,7 @@ Which must correspond to the functions called in the **Unity Project** `Assets\P
 
 ### Unity model set up ###
 
-**Unity Project** Repo: [gihub MTV_identifyErrors_Unity](https://github.com/vie74050/MTV_identifyErrors_Unity)
+**Unity Project** Repo: [gihub heartLungCo2Flushing](https://github.com/vie74050/heartLungCo2Flushing)
 
 See `Builds` folder.  The actual resources within are all built from the **Unity Project**, and not part of the scope of this repo.
 
@@ -52,11 +52,11 @@ The build folder for the Unity model should be put in `./Builds` and have the st
 
 ```text
 [project name]
-    |_ Build
-    |_ index.html
+    |_ Build      --> generated files from Unity
+    |_ index.html --> based on WebGL Template specified in Unity project `Assets\WebGLTemplates\webD2LTable`
 ```
 
-Where the `[project name]` should be descriptive of the scene.
+Where the `[project name]` should be descriptive of the Unity build.
 
 **NB**:
 
@@ -158,13 +158,8 @@ e.g.
 ### Code ###
 
 Deploy bundle to `uploads` folder, use `npm run deploy`.  
-Webpack will package the bundles and copy the `Builds` folder contents to `uploads`, and deploy to GitHub Pages:
-
-Source code hosted on GitHub pages:
-
-<https://vie74050.github.io/MTV_identifyErrors_web/src/bundle.css>
-<https://vie74050.github.io/MTV_identifyErrors_web/src/bundle.js>
+Webpack will package the bundles and copy the `Builds` folder contents to `uploads`, and deploy to GitHub Pages (`gh-pages` branch).  
 
 ### BCIT LMS (Private - requires access) ###
 
-Manually upload the builds to LMS shared files `scripts/interactive/UnityModelTaskViewer_IdentifyErrors`.
+If deploying to Learning Hub instead of GitHub, manually upload the `./uploads/Builds` to LMS shared files `scripts/interactive/UnityModelTaskViewer_HeartLungMachine`.
