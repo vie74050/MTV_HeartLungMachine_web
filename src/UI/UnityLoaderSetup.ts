@@ -28,15 +28,16 @@ export function LoadUnity() {
     const path = location.substring(0, location.lastIndexOf("/"));
     const folderName = path.substring(path.lastIndexOf("/")+1);
     const canvas = document.createElement("canvas") as HTMLCanvasElement;	  
-    const buildUrl = "Build";
-    const loaderUrl = buildUrl + "/" + folderName + ".loader.js";
+    const buildsUrl = "Builds/";
+    const buildFolder = "/Build/";
+    const loaderUrl = buildsUrl + "UnityLoader.js";
     const config = {
-      dataUrl: buildUrl + "/" + folderName + ".data.gz",
-      frameworkUrl: buildUrl + "/" + folderName + ".framework.js.gz",
-      codeUrl: buildUrl + "/" + folderName + ".wasm.gz",
+      dataUrl: buildsUrl + folderName + buildFolder + folderName + ".data.gz",
+      frameworkUrl: buildsUrl + folderName + buildFolder + folderName + ".framework.js.gz",
+      codeUrl: buildsUrl + folderName + buildFolder + folderName + ".wasm.gz",
       streamingAssetsUrl: "StreamingAssets",
       companyName: "BCIT SOH",
-      productName: "MTV_identfyErrors",
+      productName: "MTV_HeartLungMachine",
       productVersion: "0.1",
     };
   
