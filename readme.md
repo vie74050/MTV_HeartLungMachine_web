@@ -5,18 +5,13 @@
 
 ## App description ##
 
-Variant of BCIT Unity Task Viewer web handler for builds published by **MTV_identifyErrors Unity project** Engine v 2022.1.7f1.  The model viewer task is to identify errors in the scene:
-
-- Objects in scene that are errors will be named with suffix `- ERROR`.
+Variant of BCIT Unity Task Viewer web handler for builds published by **MTV_identifyErrors Unity project** Engine v 2022.1.7f1.  
 
 This web handler will:
 
-- Set up all the required UI elements
+- Set up all the required browser-side UI elements
 - Handle Unity scene loading and comms
 - Read HTML table for optional description overrides for items specified in table
-- Set up the Checklist self-quiz component:
-  - Creates list from scene items
-  - Shows answers and corresponding descriptions with associated scene items
 
 ## DEVELOPMENT ##
 
