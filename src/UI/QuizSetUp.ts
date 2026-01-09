@@ -1,6 +1,6 @@
 import $ from "jquery";
 import { GetTableData } from "../utils/GetTableData";
-import { UnityLoadNextScene, UnityResetScene, UnityLoadScene } from "./UnityLoaderSetup";
+import { UnityLoadNextScene, UnityResetScene, UnityLoadScene } from "../utils/UnityLoaderSetup";
 import { GetQRCode } from "../utils/GetQRCode";
 const sceneInfoId: string = "scene-info";
 const dialogId : string = "dialog-quiz";

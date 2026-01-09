@@ -1,5 +1,5 @@
 import $ from "jquery";
-import { SceneStart, UpdateQuizList, EndGame } from './QuizSetUp';
+import { SceneStart, UpdateQuizList, EndGame } from '../UI/QuizSetUp';
 declare global {
   interface Window { 
     FromUnity_Select: Function, 

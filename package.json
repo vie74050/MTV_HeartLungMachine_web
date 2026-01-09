@@ -5,6 +5,7 @@
   "scripts": {
     "start": "webpack --watch --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
+    "dev": "webpack serve --config webpack.dev.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d uploads"
   },
