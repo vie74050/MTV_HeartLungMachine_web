@@ -1,14 +1,6 @@
 import $ from "jquery";
 import { SceneStart, UpdateQuizList, EndGame } from '../UI/QuizSetUp';
-declare global {
-  interface Window { 
-    FromUnity_Select: Function, 
-    FromUnity_ApplicationStarted: Function, 
-    FromUnity_SetListItems: Function,
-    FromUnity_EndGame : Function,
-    createUnityInstance: Function
-  }
-}
+
 const canvasid = "unity-canvas";
 var UnityInstance = null;
 
@@ -94,11 +86,23 @@ export function UnityLoadScene(n) {
   UnityInstance.SendMessage('Main', 'LoadScene', n);
 }
 
+declare global {
+  interface Window { 
+    FromUnity_Hover: Function,
+    FromUnity_Select: Function, 
+    FromUnity_ApplicationStarted: Function, 
+    FromUnity_SetListItems: Function,
+    FromUnity_EndGame : Function,
+    createUnityInstance: Function
+  }
+}
+
+import { UpdateTooltipText } from "../UI/Setup";
 // Handles communication coming from Unity Object to page
 function InitFromUnity() {
   /** Unity SelectableObject broadcasts string `transform_name` on Select */ 
   window.FromUnity_Select = function(transform_name) {
-    
+    console.log("Selected: " + transform_name);
     /*
     var $dialog = $("#hs_popup");
     
@@ -116,6 +120,10 @@ function InitFromUnity() {
     
   }
 
+  window.FromUnity_Hover = function(transform_name) {
+    console.log("Hovered: " + transform_name);
+    UpdateTooltipText(transform_name);
+  }
   /** Scene Start handler: called from Unity main>ActivityController>Start 
    * @param {string} str Active scene name
   */

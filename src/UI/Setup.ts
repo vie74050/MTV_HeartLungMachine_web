@@ -12,13 +12,24 @@ export function SetupUI() {
       
     $("body").prepend($(header));    
 
-    // Check for ?quiz=false in the URL, if false, skip quiz setup (for 3D model viewer only mode)
+    // create tooltips like element for handling short text from Unity
+    const tooltipElem = `<div id="objLabel" style="display:block; position:absolute; z-index:1000;"></div>`;
+    $("body").append($(tooltipElem));
+    
+    // Check for ?quiz=true in the URL, enable quiz UI if present
     const urlParams = new URLSearchParams(window.location.search);
     const quizParam = urlParams.get('quiz');
-    const isQuizEnabled = quizParam === null || quizParam !== 'false';
+    const isQuizEnabled = quizParam === 'true';
     if (isQuizEnabled)    
         QuizUISetUp("#header");
     
     $( document ).tooltip();
    
+}
+
+export function UpdateTooltipText(text: string) {
+    const tooltipDiv = document.getElementById("objLabel");
+    if (tooltipDiv) {
+        tooltipDiv.innerHTML = text;
+    }
 }

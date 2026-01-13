@@ -202,7 +202,17 @@ canvas {
 .ui-tooltip {
     opacity: 1;
 }
-
+#objLabel {
+    display: block;
+    position: absolute;
+    z-index: 1000;
+    width: fit-content;
+    height: fit-content;
+    min-height: 0;
+    top: 30px;
+    background-color: white;
+    padding: 1rem;
+}
 @media only screen and (max-width: 800px)  {
     .instructions { font-size: 10px;}
 }
