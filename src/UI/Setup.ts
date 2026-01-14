@@ -13,7 +13,7 @@ export function SetupUI() {
     $("body").prepend($(header));    
 
     // create tooltips like element for handling short text from Unity
-    const tooltipElem = `<div id="objLabel" style="display:block; position:absolute; z-index:1000;"></div>`;
+    const tooltipElem = `<div id="scene-info" style="display:block; position:absolute; z-index:1000;"></div>`;
     $("body").append($(tooltipElem));
     
     // Check for ?quiz=true in the URL, enable quiz UI if present
@@ -28,7 +28,7 @@ export function SetupUI() {
 }
 
 export function UpdateTooltipText(text: string) {
-    const tooltipDiv = document.getElementById("objLabel");
+    const tooltipDiv = document.getElementById("scene-info");
     if (tooltipDiv) {
         tooltipDiv.innerHTML = text;
     }

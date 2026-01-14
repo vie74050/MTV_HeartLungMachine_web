@@ -121,7 +121,7 @@ function InitFromUnity() {
   }
 
   window.FromUnity_Hover = function(transform_name) {
-    console.log("Hovered: " + transform_name);
+    //console.log("Hovered: " + transform_name);
     UpdateTooltipText(transform_name);
   }
   /** Scene Start handler: called from Unity main>ActivityController>Start 

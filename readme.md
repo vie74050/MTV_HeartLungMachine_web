@@ -20,9 +20,27 @@ Using npm and webpack. Use `npm install` to get started.
 - For dev, use `npm run start` for watch mode.
 - To updatet the code, build using `npm run build` will bundle the web scripts to `./uploads/src/`.  
 
-### Unity model handlers ###
+### Unity model ###
 
-See `main.js`.  
+**Unity Project** Repo: [gihub heartLungCo2Flushing](https://github.com/vie74050/heartLungCo2Flushing)
+
+The actual 3D model Unity files within `./uploads/Builds/[3D project name]/Build` are built from the **Unity Project**, and not part of the scope of this repo.  The project can build to a temp folder `src/Builds` -- this folder is not tracked.  Copy the `*.gz` or `*.unityweb` files only to the uploads.
+
+The Unity model `Build/` files should be put in `./uploads/Builds/[3D project name]/Build` and have the structure:
+
+Each project folder should have the structure:
+
+```text
+[3D project name]
+    |_ Build      --> the `gz` and/or `unityweb` files copied from Unity build
+    |_ index.html --> from template, <table> content can be edited
+    |_ .htaccess  --> for server headers, compression handling
+```
+
+- The `[3D project name]` should be descriptive of the Unity scene build.
+- If the server can handle `gz` format, then the `unityweb` is not required.
+
+Each Unity build will over-write `index.html`.  This is why we build first to `src/Builds` and only copy the `gz` and/or `unityweb`to `uploads/`.  
 
 #### Loading WebGL ####
 
@@ -38,36 +56,6 @@ Calls from Unity scene to web are handled by methods prefixed `FromUnity_` and m
 - `window.FromUnity_SetListItems`
 
 Which must correspond to the functions called in the **Unity Project** `Assets\Plugins\JSLibs`.
-
-## DEPLOYMENT ##
-
-### GitHub Pages Option ###
-
-Deploy bundle to `uploads` folder, use `npm run deploy`.  
-Webpack will package the bundles to `uploads`, and deploy to GitHub Pages (`gh-pages` branch).  
-
-### BCIT LMS (Private - requires access) Option ###
-
-If deploying to Learning Hub instead of GitHub, manually upload the `./uploads/Builds` to LMS shared files `scripts/interactive/UnityModelTaskViewer_HeartLungMachine`.
-
-## Unity model set up ##
-
-**Unity Project** Repo: [gihub heartLungCo2Flushing](https://github.com/vie74050/heartLungCo2Flushing)
-
-The actual 3D model Unity files within `./uploads/Builds/[3D project name]/Build` are built from the **Unity Project**, and not part of the scope of this repo.
-
-The Unity model should be put in `./uploads/Builds` and have the structure:
-
-```text
-[3D project name]
-    |_ Build      --> the `gz` and/or `unityweb` files copied from Unity build
-    |_ index.html --> loads src from server
-    |_ local.html --> loads src from local built files
-    |_ .htaccess  --> for server headers, compression handling
-```
-
-- The `[3D project name]` should be descriptive of the Unity scene build.
-- If the server can handle `gz` format, then the `unityweb` is not required.
 
 ## Editable portion - html `<table>` ##
 
@@ -141,3 +129,14 @@ e.g.
 ```
 
 > \* Info promp and Show answers prompt: These are special optional keywords to use to over-ride default prompt texts.
+
+## DEPLOYMENT ##
+
+### GitHub Pages Option ###
+
+Deploy bundle to `uploads` folder, use `npm run deploy`.  
+Webpack will package the bundles to `uploads`, and deploy to GitHub Pages (`gh-pages` branch).  
+
+### BCIT LMS (Private - requires access) Option ###
+
+If deploying to Learning Hub instead of GitHub, manually upload the `./uploads/Builds` to LMS shared files `scripts/interactive/UnityModelTaskViewer_HeartLungMachine`.
