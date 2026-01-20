@@ -97,7 +97,7 @@ declare global {
   }
 }
 
-import { UpdateTooltipText } from "../UI/Setup";
+import { UpdateTooltipText } from "../UI/UnityTooltip";
 // Handles communication coming from Unity Object to page
 function InitFromUnity() {
   /** Unity SelectableObject broadcasts string `transform_name` on Select */ 

@@ -12,9 +12,7 @@ export function SetupUI() {
       
     $("body").prepend($(header));    
 
-    // create tooltips like element for handling short text from Unity
-    const tooltipElem = `<div id="scene-info" style="display:block; position:absolute; z-index:1000;"></div>`;
-    $("body").append($(tooltipElem));
+   
     
     // Check for ?quiz=true in the URL, enable quiz UI if present
     const urlParams = new URLSearchParams(window.location.search);
@@ -27,23 +25,3 @@ export function SetupUI() {
    
 }
 
-export function UpdateTooltipText(text: string) {
-    const tooltipDiv = document.getElementById("scene-info");
-    if (tooltipDiv) {
-        tooltipDiv.innerHTML = text;
-        // position the tooltipDiv based on mouse position
-        document.onmousemove = function(e) {
-            const mouseX = e.clientX;
-            const mouseY = e.clientY;
-            tooltipDiv.style.left = (mouseX + 15) + "px";
-            tooltipDiv.style.top = (mouseY + 15) + "px";
-        }
-
-        // if text is empty, hide the tooltipDiv
-        if (text.trim() === "") {
-            tooltipDiv.style.display = "none";
-        } else {
-            tooltipDiv.style.display = "block";
-        }
-    }
-}
