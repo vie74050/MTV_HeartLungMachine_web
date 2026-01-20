@@ -24,7 +24,7 @@ Using npm and webpack. Use `npm install` to get started.
 
 **Unity Project** Repo: [gihub heartLungCo2Flushing](https://github.com/vie74050/heartLungCo2Flushing)
 
-The actual 3D model Unity files within `./uploads/Builds/[3D project name]/Build` are built from the **Unity Project**, and not part of the scope of this repo.  The project can build to a temp folder `src/Builds` -- this folder is not tracked.  Copy the `*.gz` or `*.unityweb` files only to the uploads.
+The actual 3D model Unity files within `./uploads/Builds/[3D project name]/Build` are built from the **Unity Project**, and not part of the scope of this repo.  The project can build to a temp folder `src/Builds` -- this folder is not tracked.  
 
 The Unity model `Build/` files should be put in `./uploads/Builds/[3D project name]/Build` and have the structure:
 
@@ -41,6 +41,9 @@ Each project folder should have the structure:
 - If the server can handle `gz` format, then the `unityweb` is not required.
 
 Each Unity build will over-write `index.html`.  This is why we build first to `src/Builds` and only copy the `gz` and/or `unityweb`to `uploads/`.  
+
+Move the `*.gz` or `*.unityweb` files only to the corresponding `uploads` folder:  
+ `npm run mv-gz` or `npm run mv-unitweb`.
 
 #### Loading WebGL ####
 
