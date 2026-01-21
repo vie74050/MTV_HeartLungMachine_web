@@ -8,7 +8,7 @@
     "mv-unityweb": "bash -c 'find src/Builds/ -type f -name \"*.unityweb\" | while read file; do dest=\"uploads/Builds/${file#src/Builds/}\"; mkdir -p \"$(dirname \"$dest\")\"; mv -f \"$file\" \"$dest\"; done'",
     "build": "webpack --config webpack.prod.js",
     "dev": "webpack serve --config webpack.dev.js",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build && npm run mv-gz",
     "deploy": "gh-pages -d uploads"
   },
   "dependencies": {
