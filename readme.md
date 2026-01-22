@@ -1,4 +1,4 @@
-# Unity Model Task Viewer - Identify Errors #
+# Unity Model Task Viewer - Heart Lung Machine #
 
 (c) 2023 May 4 Vienna Ly  
 [![Creative Commons License](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
@@ -47,18 +47,19 @@ Move the `*.gz` or `*.unityweb` files only to the corresponding `uploads` folder
 
 #### Loading WebGL ####
 
-The `LoadUnity` code in `LoaderSetup.ts` is for Unity WebGL builds from engine version 2022.x.  
+The `LoadUnity` code in `UnityLoaderSetup.ts` is for Unity WebGL builds from engine version 2022.x.  
 Refer to the latest Unity engine documentation if another version of Unity editor was used for the build.
 
 #### FromUnity handlers ####
 
-Calls from Unity scene to web are handled by methods prefixed `FromUnity_` and must be in global scope:
+**Naming convention**: Calls from Unity scene to web are handled by methods prefixed `FromUnity_` and must be in global scope:
 
 - `window.FromUnity_ApplicationStarted`
+- `window.FromUnity_Hover`
 - `window.FromUnity_Select`
 - `window.FromUnity_SetListItems`
 
-Which must correspond to the functions called in the **Unity Project** `Assets\Plugins\JSLibs`.
+These **must correspond** to the functions called in the **Unity Project** `Assets\Plugins\JSLibs`.
 
 ## Editable portion - html `<table>` ##
 
