@@ -1,4 +1,4 @@
-import { SetupUI } from './UI/Setup';
+import { Header } from './UI/Setup';
 import './scss/styles.scss'; 
 import $ from "jquery";
 import { LoadUnity } from './utils/UnityLoaderSetup';
@@ -10,5 +10,5 @@ require('../node_modules/jquery-ui-dist/jquery-ui.min.css');
 $(function(){
 	LoadUnity(); 
 	
-	SetupUI();
+	Header();
 });

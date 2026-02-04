@@ -1,9 +1,9 @@
 import $ from "jquery";
-import {UnityResetScene} from "../utils/UnityLoaderSetup";
-import { QuizUISetUp } from "./QuizSetUp";
+import {UnityResetScene} from "../utils/UnityComm";
 
 
-export function SetupUI() {
+export function Header() {
+    // Create the header HTML with instructions and controls
     const header = `<div id="header" class="mmd instructions">
         <button id="reset-scene-button">Reset Scene</button>&nbsp;&nbsp;
         <b>Select</b> <span class="icon mouse_lf" title="Left-click objects to interact."></span>
@@ -17,12 +17,6 @@ export function SetupUI() {
     $("#reset-scene-button").on("click", function() {
         UnityResetScene();
     });
-    // Check for ?quiz=true in the URL, enable quiz UI if present
-    const urlParams = new URLSearchParams(window.location.search);
-    const quizParam = urlParams.get('quiz');
-    const isQuizEnabled = quizParam === 'true';
-    if (isQuizEnabled)    
-        QuizUISetUp("#header");
     
     $( document ).tooltip();
    

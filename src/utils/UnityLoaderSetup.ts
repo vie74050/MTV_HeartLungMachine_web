@@ -1,8 +1,8 @@
 import $ from "jquery";
-import { SceneStart, UpdateQuizList, EndGame } from '../UI/QuizSetUp';
+import { InitFromUnity } from "../utils/UnityComm";
 
 const canvasid = "unity-canvas";
-var UnityInstance = null;
+export var UnityInstance = null;
 
 /** Unity progress loader UI and loaded init handling */
 export function LoadUnity() {
@@ -71,85 +71,3 @@ export function LoadUnity() {
 
     InitFromUnity();
 } 
-
-// SendMessage Methods: calls to Unity 
-export function UnityResetScene() {
-  // reloads active scene
-  UnityInstance.SendMessage('Main', 'ResetScene');
-}
-
-export function UnityLoadNextScene() {
-  UnityInstance.SendMessage('Main', 'LoadNextScene');
-}
-
-export function UnityLoadScene(n) {
-  UnityInstance.SendMessage('Main', 'LoadScene', n);
-}
-
-declare global {
-  interface Window { 
-    FromUnity_Hover: Function,
-    FromUnity_Select: Function, 
-    FromUnity_ApplicationStarted: Function, 
-    FromUnity_SetListItems: Function,
-    FromUnity_EndGame : Function,
-    createUnityInstance: Function
-  }
-}
-
-import { UpdateTooltipText } from "../UI/UnityTooltip";
-// Handles communication coming from Unity Object to page
-function InitFromUnity() {
-  /** Unity SelectableObject broadcasts string `transform_name` on Select */ 
-  window.FromUnity_Select = function(transform_name) {
-    console.log("Selected: " + transform_name);
-    /*
-    var $dialog = $("#hs_popup");
-    
-    $dialog.dialog("close");
-    
-    var key = transform_name.trim();
-    if (key in data){
-      $dialog.html(data[key])
-        .dialog( "option", {
-          "title": transform_name
-        } )
-        .dialog( "open" );
-    }
-    */
-    
-  }
-
-  window.FromUnity_Hover = function(transform_name) {
-    //console.log("Hovered: " + transform_name);
-    UpdateTooltipText(transform_name);
-  }
-  /** Scene Start handler: called from Unity main>ActivityController>Start 
-   * @param {string} str Active scene name
-  */
-  window.FromUnity_ApplicationStarted = function( str: string) {
-    
-    // let web app know that Unity object is ready 
-    console.log(str + " scene started");
-    SceneStart(str);
-    
-  }
-
-  /** Called by Unity SetBrowserItemsList once all S.O list items retrieved
-   *  NB: Error objects names suffixed by "- ERROR"
-   * @param {string} str String of S.O items where isListItem is true, delimited by \
-  */
-  window.FromUnity_SetListItems = function( str : string ) {
-    let itemsInScene = str.split("\\");
-    
-    UpdateQuizList(itemsInScene);
-  
-  }
-
-  window.FromUnity_EndGame = function() {
-    // unity calls this when UnityLoadNextScene results in no more scenes
-    UnityInstance.SendMessage('Main', 'ResetEOCOUNTER');
-    EndGame();
-  }
-
-}
