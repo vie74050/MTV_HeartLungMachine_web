@@ -1,6 +1,6 @@
 import { UnityInstance } from "./UnityLoaderSetup";
 import { UpdateTooltipText } from "../UI/UnityTooltip";
-
+import $ from "jquery";
 declare global {
   interface Window { 
     FromUnity_Hover: Function,
@@ -8,7 +8,8 @@ declare global {
     FromUnity_ApplicationStarted: Function, 
     FromUnity_SetListItems: Function,
     FromUnity_EndGame : Function,
-    createUnityInstance: Function
+    createUnityInstance: Function,
+    interactibleNames: string[]
   }
 }
 
@@ -20,13 +21,15 @@ export function InitFromUnity() {
    * @param {string} str scene name, names of interactible objects
   */
   window.FromUnity_ApplicationStarted = function( str: string) {
-    
-    // log str -- the interactibles in scene as a comma-separated list
-    // console.log("Application Started: " + str);
-    const interactibleNames = str;
-
     // store in global variable
-    (window as any).interactibleNames = interactibleNames.split(",");
+    (window as any).interactibleNames = Array.from(
+      new Set(
+      str
+        .split(",")
+        .map(name => name.trim())
+        .filter(name => name.length > 0)
+      )
+    ).sort();
 
     // Initialize tooltip text with empty
     UpdateTooltipText("");
@@ -36,21 +39,10 @@ export function InitFromUnity() {
   /** Unity SelectableObject broadcasts string `transform_name` on Select */ 
   window.FromUnity_Select = function(transform_name) {
     console.log("Selected: " + transform_name);
-    /*
-    var $dialog = $("#hs_popup");
-    
-    $dialog.dialog("close");
-    
-    var key = transform_name.trim();
-    if (key in data){
-      $dialog.html(data[key])
-        .dialog( "option", {
-          "title": transform_name
-        } )
-        .dialog( "open" );
-    }
-    */
-    
+
+    // create event
+    const event = new CustomEvent('UnityObjectSelected', { detail: { name: transform_name } });
+    window.dispatchEvent(event);
   }
 
   window.FromUnity_Hover = function(transform_name) {
