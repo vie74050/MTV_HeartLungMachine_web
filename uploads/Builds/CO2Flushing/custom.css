@@ -1,0 +1,96 @@
+#system_panel {
+    background-color: blue;
+    padding: 4px;
+    border: 4px solid black;
+}
+
+.panel_page {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+}
+.panel_page.inactive {
+    display: none !important;
+} 
+.panel_page:not(.inactive):first-child {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+}
+
+.panel_area {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.panel_page:first-child .panel_area {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 100%;
+    background-color: #0077ff;
+}
+.panel_footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 4px;
+    padding: 4px;
+    flex: 1;
+}   
+button.btn {
+    background-color: #6daff0;
+    border: none;
+    padding: 6px 18px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+}
+button:first-child:focus {
+    outline: none;
+    box-shadow: none; /* Removes any browser-specific highlights */
+}
+.submenu .panel_area button.btn {
+    height: 100%;
+    font-weight: bold;
+}
+.btn:not(.inactive):hover {
+    
+    outline: 4px solid white;
+}
+
+#system_panel h3 {
+    font-size: large;
+    font-weight: bold;
+    padding: 6px 18px 6px 6px;
+    margin: 0 auto 6px 0;
+    border-bottom-right-radius: 10px;
+    background-color: #b1cbe5;
+    width: 100%;
+}
+#system_panel .submenu h3 {
+    height: 1.5em;
+    width: 100%;
+}
+
+.panel_box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    gap: 2px;
+    padding: 4px;
+}
+
+.panel_box span {
+    height: 100%;
+    width: 100%;
+    flex: 1;
+    background-color: #002a5a;
+}
