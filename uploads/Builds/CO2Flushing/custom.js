@@ -1,5 +1,5 @@
 /** Custom scripts for CO2 Flushing system menu navigation */
-window.addEventListener('load', function() {
+window.addEventListener('load', function() {    
     // if #system_panel .btn does not have onclick, set to disabled
     const buttons = document.querySelectorAll('#system_panel .btn');
     buttons.forEach(function(btn) {
@@ -7,7 +7,9 @@ window.addEventListener('load', function() {
             btn.classList.add('disabled');
         }
     });
-    console.log("loaded");
+    
+    toggleListItems();
+
 });
 
 function showPanel(panelId) {
@@ -42,4 +44,18 @@ function showPanel(panelId) {
     } else {
         bubble1Btn.classList.remove('active');
     }
+}
+
+function toggleListItems() {
+     // #scene-info h4 click event handler - toggles the closest .list-items-container
+     const headers = document.querySelectorAll('#scene-info h4');
+        headers.forEach(header => {
+            header.addEventListener('click', function() {
+                const listContainer = this.nextElementSibling;
+                if (listContainer && listContainer.classList.contains('list-items-container')) {
+                    listContainer.classList.toggle('show');
+                }
+                header.classList.toggle('show');
+            });
+        });
 }
