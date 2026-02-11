@@ -45,7 +45,8 @@
     align-items: center;
     gap: 4px;
     padding: 4px;
-    flex: 1;
+    height: fit-content;
+    font-size: 1.5em;
 }   
 .panel_area.btn{
     box-sizing: border-box;
@@ -129,7 +130,8 @@ button:first-child:focus {
 
 #scene-info {
     width: 400px;
-    bottom: 35px;
+    max-height: 95vh;
+    height: fit-content;
     right: 35px;
     overflow-y: auto;
 }
@@ -154,7 +156,7 @@ button:first-child:focus {
 ul.list-items-container {
     list-style-type: none;
     padding: 0;
-    margin: 0.5em 1.5em;
+    margin: 0.5em 1.2em;
     display: none;
     flex-direction: column;
     gap: 4px;
@@ -165,31 +167,34 @@ ul.list-items-container.show {
 ul.list-items-container li {
     list-style-type: none;
     position: relative;
-    padding-left: 2em;
+    padding-left: 2.4em;
     cursor: help;
     vertical-align: top;
-    margin: 1em auto;
-    line-height: 1em;
+    margin: 1.2em auto;
+    line-height: 1.2em;
 }
 ul.list-items-container li::before {
     content: "";
     display: inline-block;
-    width: 1em;
-    height: 1em;
-    border: 2px solid #000000;
-    border-radius: 4px;
+    width: 1.2em;
+    height: 1.2em;
+    border: 1px solid #000000;
+    border-radius: 0.6em;
     background: white;
     margin-right: 0.5em;
     position: absolute;
     left: 0;
     top: 50%;
     transform: translateY(-50%);
+    font-size: 1.2em;
+    text-align: center;
+    line-height: 1.2em;
 }
 ul.list-items-container li._checked::before {
     content: "✔";
-    color: green;
-    font-size: 1.2em;
-    text-align: center;
-    line-height: 1em;
-    border-color: transparent;
+    color: white;
+    border-color: white;
+    background-color: #6bd34a;
+    outline: 1px solid darkgreen;
+    
 }
