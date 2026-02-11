@@ -129,7 +129,8 @@ button:first-child:focus {
 
 #scene-info {
     width: 400px;
-    bottom: 35px;
+    max-height: 95vh;
+    height: fit-content;
     right: 35px;
     overflow-y: auto;
 }

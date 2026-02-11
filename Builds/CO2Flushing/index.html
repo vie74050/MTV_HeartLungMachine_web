@@ -27,15 +27,19 @@
   <body class="d2l-edittable">
 
     <div id="scene-info">
-      <p>This is a prototype of the CO2 flushing process.  Refer to the <a href="https://bcit365-my.sharepoint.com/:w:/g/personal/vienna_ly_bcit_ca/IQBFWvxtPDivQKCuXGgNWSOpAX1tE_S1ILPCAuwGEb70OFg?e=gCSfnQ" target="_blank" title="BCIT document for BCIT internal access only">CO2 Flushing document</a> provided by the instructor for more information. <span class="small">v 2026.02.09</span>
-      
+      <p>This is a prototype of the CO2 flushing process.  Refer to the 
+        <a href="https://bcit365-my.sharepoint.com/:w:/g/personal/vienna_ly_bcit_ca/IQBFWvxtPDivQKCuXGgNWSOpAX1tE_S1ILPCAuwGEb70OFg?e=gCSfnQ" target="_blank" title="BCIT document for BCIT internal access only">CO2 Flushing document &#10064;</a> 
+        
+        provided by the instructor for more information. 
+  
+      <span class="small">v 2026.02.10</span>      
       </p>
       
       <h3>Overview</h3>
       
       <h4 >Set up</h4>
       <ul class="list-items-container">
-        <li title="Click on the sink area">Perform hand hygiene</li>
+        <li title="Click on the sink area" data-event="HandHygiene">Perform hand hygiene</li>
         <li title="Drag & drop the filter from the cart to the 3-way stopcock">Attach bacterial air filter to the arterial line pressure isolator three-way stop cock. </li>
         <li title="Click on the 3-way stopcock until it is in the open position">Ensure three-way stop cock open to circuit. </li>
         <li title="Click and drag the CO2 supply line to the stopcock">Connect the CO2 supply hose to the system.</li>
@@ -84,7 +88,7 @@
     <div id="system_panel">
       <!-- System panel Main menu -->
       <section id="system_main_menu" class="panel_page ">
-        <div id="bubble1_btn" class="panel_area btn" onclick="showPanel('system_bubble1')">
+        <div id="bubble1_btn" class="panel_area btn" onclick="showSystemPanel('system_bubble1')">
           <h3>Bubble 1</h3>
           <div class="panel_box">
             <span></span>
@@ -93,7 +97,7 @@
             <span style="flex: 3"></span>
           </div>
         </div>
-        <div id="level1_btn" class="panel_area btn" onclick="showPanel('system_level1')">
+        <div id="level1_btn" class="panel_area btn" onclick="showSystemPanel('system_level1')">
           <h3>Level 1</h3>
           <div class="panel_box">
             <span></span>
@@ -117,13 +121,13 @@
               <span class="status_text">On</span>
             </div>
             <div class="panel_box">
-              <button class="btn" style="flex: 3" onclick="showPanel('system_level1_function')">Function</button>
+              <button class="btn" style="flex: 3" onclick="showSystemPanel('system_level1_function')">Function</button>
               <span class="status_text">Off</span>
             </div>
           </div>
           <div class="panel_footer">
             <button id="pages_btm" class="btn" title="More pages">📚</button>
-            <button id="back_btn" class="btn" title="Save" onclick="showPanel('system_main_menu')">✔️</button>
+            <button id="back_btn" class="btn" title="Save" onclick="showSystemPanel('system_main_menu')">✔️</button>
           </div>
       </section>
       <section id="system_level1_function" class="panel_page submenu pg2 inactive">
@@ -140,8 +144,8 @@
             
           </div>
         <div class="panel_footer">
-          <button id="close_btn" class="btn" title="Close" onclick="showPanel('system_level1')">❌</button>
-          <button id="back_btn" class="btn" title="Save" onclick="showPanel('system_level1')">✔️</button>
+          <button id="close_btn" class="btn" title="Close" onclick="showSystemPanel('system_level1')">❌</button>
+          <button id="back_btn" class="btn" title="Save" onclick="showSystemPanel('system_level1')">✔️</button>
           </div>
       </section>
 
@@ -156,7 +160,7 @@
               <span class="status_text">arterial (4)</span>
             </div>
             <div class="panel_box">
-              <button class="btn" style="flex: 3" onclick="showPanel('system_bubble1_threshold')">Threshold bubble alarm</button>
+              <button class="btn" style="flex: 3" onclick="showSystemPanel('system_bubble1_threshold')">Threshold bubble alarm</button>
               <span class="status_text">Off</span>
             </div>
             <div class="panel_box">
@@ -166,7 +170,7 @@
           </div>
           <div class="panel_footer">
             <button id="pages_btm" class="btn" title="More pages">📚</button>
-            <button id="back_btn" class="btn" title="Save" onclick="showPanel('system_main_menu')">✔️</button>
+            <button id="back_btn" class="btn" title="Save" onclick="showSystemPanel('system_main_menu')">✔️</button>
           </div>
       </section>
       <section id="system_bubble1_threshold" class="panel_page submenu pg2 inactive">
@@ -186,8 +190,8 @@
             
           </div>
         <div class="panel_footer">
-          <button id="close_btn" class="btn" title="Close" onclick="showPanel('system_bubble1')">❌</button>
-          <button id="back_btn" class="btn" title="Save" onclick="showPanel('system_bubble1')">✔️</button>
+          <button id="close_btn" class="btn" title="Close" onclick="showSystemPanel('system_bubble1')">❌</button>
+          <button id="back_btn" class="btn" title="Save" onclick="showSystemPanel('system_bubble1')">✔️</button>
           </div>
       </section>      
     </div>
