@@ -45,7 +45,8 @@
     align-items: center;
     gap: 4px;
     padding: 4px;
-    flex: 1;
+    height: fit-content;
+    font-size: 1.5em;
 }   
 .panel_area.btn{
     box-sizing: border-box;

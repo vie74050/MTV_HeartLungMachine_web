@@ -92,16 +92,16 @@ function SceneInfoSetup() {
         const toggleSceneInfoButton = document.createElement('button');
         toggleSceneInfoButton.id = 'toggle_scene_info_btn';
         toggleSceneInfoButton.className = 'right';
-        toggleSceneInfoButton.innerHTML = 'Scene Info &#128469;';
+        toggleSceneInfoButton.innerHTML = 'Scene Info <span class="ui-button-icon ui-icon ui-icon-closethick"></span>';
         header.appendChild(toggleSceneInfoButton);
         toggleSceneInfoButton.addEventListener('click', function() {
             const sceneInfo = document.getElementById('scene-info');
             if (sceneInfo) {
                 sceneInfo.classList.toggle('hidden');
                 if (sceneInfo.classList.contains('hidden')) {
-                    toggleSceneInfoButton.innerHTML = 'Scene Info &#128470;';
+                    toggleSceneInfoButton.innerHTML = 'Scene Info 🗖';
                 } else {
-                    toggleSceneInfoButton.innerHTML = 'Scene Info &#128469;';
+                    toggleSceneInfoButton.innerHTML = 'Scene Info <span class="ui-button-icon ui-icon ui-icon-closethick"></span>';
                 }
             }
         });
