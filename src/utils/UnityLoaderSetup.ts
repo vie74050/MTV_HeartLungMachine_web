@@ -4,6 +4,12 @@ import { InitFromUnity } from "../utils/UnityComm";
 const canvasid = "unity-canvas";
 export var UnityInstance = null;
 
+declare global {
+  interface Window {
+    UnityInstance: any;
+  }
+}
+
 /** Unity progress loader UI and loaded init handling */
 export function LoadUnity() {
     const loader = `<div id="loading-cover">
@@ -62,12 +68,13 @@ export function LoadUnity() {
         .then((unityInstance) => {
           loadingCover.style.display = "none";
           UnityInstance = unityInstance;
+          window.UnityInstance = UnityInstance;
         })
         .catch((message) => {
           alert(message);
         });
     };
     document.body.appendChild(script);
-
+   
     InitFromUnity();
 } 

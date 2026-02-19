@@ -70,8 +70,18 @@ function showSystemPanel(panelId) {
     const level1Btn = document.querySelector('#level1_btn');
     if (level1FunctionStatus === 'On') {
         level1Btn.classList.add('active');
+
+        // POC only - set ERC clamp in unity scene (Main SetERCClampOn)
+        if (window.UnityInstance) {
+            window.UnityInstance.SendMessage('Main', 'SetERCClampOn');
+        }
+
     } else {
         level1Btn.classList.remove('active');
+        // POC only - set ERC clamp in unity scene (Main SetERCClampOff)
+        if (window.UnityInstance) {
+            window.UnityInstance.SendMessage('Main', 'SetERCClampOff');
+        }
     }
 
     // if bubble1ThresholdStatus is not Off, set the #bubble1_btn class to active, else remove active
