@@ -1,3 +1,5 @@
+/** The HLM System panel UI */
+
 import $ from "jquery";
 
 export function SystemPanelInit() {
@@ -14,7 +16,7 @@ export function SystemPanelInit() {
         });
 
 
-        // listen for selection events to open dialog
+        // listen for selection events from model to open/close dialog
         window.addEventListener('UnityObjectSelected', function(e: any) {
             var transform_name = e.detail.name;
             if (transform_name.trim() === "System Panel") {

@@ -12,8 +12,8 @@ window.addEventListener('load', function() {
     // listen for Unity events #scene-info checklist
     // 1. UnityObjectSelected - payload: {objectName: string} name of obj selected
     window.addEventListener('UnityObjectSelected', (event) => {
-       console.log('Unity object selected:', event.detail.name);
-       const objectName = event.detail.name;
+       
+        const objectName = event.detail.name.replace(/\s+/g, '');
 
         // look for list item with data-event matching objectName
         const listItem = document.querySelector(`#scene-info li[data-event="${objectName}"]`);
@@ -21,14 +21,30 @@ window.addEventListener('load', function() {
         if (listItem) {
             listItem.classList.add('_checked');
         }
+        
+        // if ERC Clamp OFF event, check if level1_function or bubble1_threshold are active, 
+        // if so SetERCClamp(true) since they have priority
+        if (objectName === 'ERCClampOFF') {
+            
+            const level1FunctionStatus = document.getElementById('level1_function_status').value;
+            const bubble1ThresholdStatus = document.getElementById('bubble1_threshold_status').value;
+            if (level1FunctionStatus !== 'Off' || bubble1ThresholdStatus !== 'Off') {
+                setTimeout(() => {
+                    SetERCClamp(true); 
+                    console.log('ERC reclamped because system panel settings have priority');
+                }, 1000);
+            }
+        }
+
     });
 
     // update #reset-scene-button to reset checklist
     const resetSceneButton = document.getElementById('reset-scene-button');
     if (resetSceneButton) {
         resetSceneButton.addEventListener('click', function() {
-            // also reset the scene info checklist
+            // also reset the scene DOM elements
             ResetSceneInfoChecklist();
+            ResetSystemPanel();
         });
     }
     
@@ -56,29 +72,56 @@ function showSystemPanel(panelId) {
 
     // if level1functionStatus set the #level1_btn class to active, else remove active
     const level1Btn = document.querySelector('#level1_btn');
-    if (level1FunctionStatus === 'On') {
+    if (level1FunctionStatus !== 'Off') {
         level1Btn.classList.add('active');
-
-        // POC only - set ERC clamp in unity scene (Main SetERCClampOn)
-        if (window.UnityInstance) {
-            window.UnityInstance.SendMessage('Main', 'SetERCClampOn');
-        }
-
+        SetERCClamp(true);
     } else {
         level1Btn.classList.remove('active');
-        // POC only - set ERC clamp in unity scene (Main SetERCClampOff)
-        if (window.UnityInstance) {
-            window.UnityInstance.SendMessage('Main', 'SetERCClampOff');
-        }
     }
 
     // if bubble1ThresholdStatus is not Off, set the #bubble1_btn class to active, else remove active
     const bubble1Btn = document.querySelector('#bubble1_btn');
     if (bubble1ThresholdStatus !== 'Off') {
         bubble1Btn.classList.add('active');
+        SetERCClamp(true);
     } else {
         bubble1Btn.classList.remove('active');
     }
+}
+function SetERCClamp(status) {
+    if (window.UnityInstance) {
+        if (status) {
+            window.UnityInstance.SendMessage('Main', 'SetERCClampOn');
+        } else {
+            window.UnityInstance.SendMessage('Main', 'SetERCClampOff');
+        }
+    }
+}
+function ResetSystemPanel() {
+   // set all #system_panel .panel_page to inactive except first
+    const panels = document.querySelectorAll('#system_panel .panel_page');
+    panels.forEach((panel, index) => {
+        if (index === 0) {
+            panel.classList.remove('inactive');
+        } else {
+            panel.classList.add('inactive');
+        }
+    });
+
+    // remove all active classes from #system_panel 
+    const activeButtons = document.querySelectorAll('#system_panel .active');
+    activeButtons.forEach(button => button.classList.remove('active'));
+    
+    // Set all select to last option (Off)
+    const selects = document.querySelectorAll('#system_panel select');
+    selects.forEach(select => {
+        select.selectedIndex = select.options.length - 1;
+    });
+
+    // reset .status_text to Off
+    const statusTexts = document.querySelectorAll('#system_panel .status_text');
+    statusTexts.forEach(status => status.textContent = 'Off');
+   
 }
 
 /* Scene Info POC setup - a checklist of the steps */
