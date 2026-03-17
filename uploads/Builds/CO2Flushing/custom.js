@@ -3,14 +3,12 @@
 */
 
 window.addEventListener('load', function() {    
-    // if document has #system_panel
-    if (document.getElementById('system_panel'))
-        SystemPanelSetup();
-    
+       
     // if document has #scene-info
     if (document.getElementById('scene-info'))
         SceneInfoSetup();
 
+    // TODO: Set up scene to broadcast events corresponding to checklist 
     // listen for Unity events #scene-info checklist
     // 1. UnityObjectSelected - payload: {objectName: string} name of obj selected
     window.addEventListener('UnityObjectSelected', (event) => {
@@ -37,16 +35,6 @@ window.addEventListener('load', function() {
 });
 
 /* System panel POC setup */
-
-function SystemPanelSetup() {
-    // if #system_panel .btn does not have onclick, set to disabled
-    const buttons = document.querySelectorAll('#system_panel .btn');
-    buttons.forEach(function(btn) {
-        if (!btn.getAttribute('onclick')) {
-            btn.classList.add('disabled');
-        }
-    });
-}
 
 // System panel menu navigation handler
 function showSystemPanel(panelId) {

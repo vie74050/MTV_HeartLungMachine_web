@@ -1,0 +1,99 @@
+#dialog-quiz {
+    
+    width: fit-content;
+    min-width: 250px;
+    #list-items-container{
+        p {
+            display: flex;
+            flex-direction: row;
+            margin: 0.5em 0;
+            vertical-align: middle;
+            align-items: flex-start;
+        }
+        label {
+            font-weight: normal;
+            margin: 0 0.5em;
+            flex-grow: 1;
+        }
+        input[type="checkbox"]{    
+            -webkit-appearance: initial;
+            appearance: initial;
+            background: #fff;
+            width: 20px;
+            flex-basis: 20px;
+            flex-grow: 0;
+            flex-shrink: 0;
+            height: 20px;
+            border: 1px solid #333;
+            position: relative;
+            margin: 0;
+        }
+        input[type="checkbox"]:checked {
+            background: rgb(255, 255, 0);
+        }
+        input[type="checkbox"]:checked:after {
+            content: "\2691";
+            color: rgb(255, 0, 0);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%,-50%);
+            -moz-transform: translate(-50%,-50%);
+            -ms-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+        }
+        input[type="checkbox"]:focus,
+        input[type="checkbox"]:active{
+            outline-offset: 2px;
+        }
+        
+    }
+    
+    .fb-icon {
+        display: inline-block;
+        text-align: center;
+        width: 13px;
+        flex-grow: 0;
+        flex-shrink: 0;
+        height: fit-content;
+        font-size: 13px;
+        padding: 2px;
+        line-height: 13px;
+        box-sizing: content-box;
+        background: #ff0000;
+        color: white;
+        border-radius: 50%;
+        font-weight: 800;
+        border-color: red;
+
+        &.correct {
+            background: green;
+            border-color: rgb(0, 104, 9);
+        }
+    }
+    
+    
+}
+#dialog-quiz-info{
+    background-color: lightblue;
+    margin: 0em -1.3em 0em -1.3em;
+    padding: 1em;
+    border-left: 1em solid #24667c;
+    border-right: 1em solid #24667c;
+    border-radius:1em;
+}
+
+#dialog-quiz-btn::after{
+    content: "+";
+    border: 1px solid #ccc;
+    border-radius: 25%;
+    margin: 0 0 0 5px;
+    text-align: center;
+    padding: 0 5px;
+}
+#dialog-quiz-btn.btn-open::after{
+    content: "\2013";
+}
+.quiz-btn{
+    font-size: 14px;
+}

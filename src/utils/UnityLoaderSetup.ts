@@ -1,5 +1,6 @@
 import $ from "jquery";
 import { InitFromUnity } from "../utils/UnityComm";
+import '../scss/unityLoadingStyles.scss'; 
 
 const canvasid = "unity-canvas";
 export var UnityInstance = null;

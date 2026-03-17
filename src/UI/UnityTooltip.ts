@@ -1,3 +1,4 @@
+import '../scss/unityTooltip.scss';
 export function UpdateTooltipText(text: string) {
     const tooltipDiv = document.getElementById("unity-tooltip");
 

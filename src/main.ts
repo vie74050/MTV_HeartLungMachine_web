@@ -1,8 +1,8 @@
-import { UISetup } from './UI/Setup';
-import './scss/styles.scss'; 
 import $ from "jquery";
+import { Header } from './UI/HeaderUI';
+import { SystemPanelInit } from './UI/SystemPanel';
 import { LoadUnity } from './utils/UnityLoaderSetup';
-
+import './scss/styles.scss';
 require('../node_modules/jquery-ui-dist/jquery-ui.min.js');
 require('../node_modules/jquery-ui-dist/jquery-ui.min.css');
 
@@ -10,5 +10,6 @@ require('../node_modules/jquery-ui-dist/jquery-ui.min.css');
 $(function(){
 	LoadUnity(); 
 	
-	UISetup();
+	Header();
+	SystemPanelInit();
 });

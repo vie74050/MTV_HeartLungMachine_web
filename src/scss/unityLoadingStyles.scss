@@ -1,0 +1,39 @@
+canvas {
+    width: 100%;
+    height: calc(100% - var(--instructions-h));
+}
+#loading-cover {
+    margin: auto;
+    padding-top: 25vh;
+    width: 50%;
+    height: 100vh;
+    text-align: center; 
+    color: black;
+    
+}
+#logo{
+    height: 153px;
+    width: 171px;
+    margin: auto;
+    background-image: url(https://learn.bcit.ca/shared/scripts/interactive/UnityModelViewerTemplateData/bcit_cmyk.png);
+}
+#unity-loading-bar{
+    position: relative;
+    padding-top: 1em;
+}
+#unity-progress-bar-empty {
+    position: absolute;
+    top:100%;
+    left: 0;
+    height: 20px;
+    width: 100%;
+    outline: 1px solid #eee;
+}
+
+#unity-progress-bar-full {
+    height: 20px;
+    top:100%;
+    left: 0;
+    background-color: #eee;
+    position: absolute;
+}

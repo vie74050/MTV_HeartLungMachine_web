@@ -1,7 +1,1 @@
-# Test Site #
-
-Sample Unity builds for testing only
-
-[Heart-Lung Maching CO2 Flushing](CO2Flushing/local.html?quiz=false)
-
-## Update notes ##
+Assets specific to a build should be put within the project folder and loaded in the `index.html`

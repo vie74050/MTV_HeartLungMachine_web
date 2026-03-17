@@ -2,6 +2,7 @@
   box-sizing: border-box;
 }
 
+/* System Panel : TODO */
 #system_panel {
     background-color: blue;
     padding: 4px;
@@ -128,12 +129,17 @@ button:first-child:focus {
     
 }
 
+/* Scene-Info */
 #scene-info {
+    position: absolute;
     width: 400px;
     max-height: 95vh;
     height: fit-content;
-    right: 35px;
+    right: 10px;
+    top: 35px;
     overflow-y: auto;
+    background-color: #fff;
+    padding: 1em;
 }
 #scene-info h3{
     font-size: 1.2em;
