@@ -125,8 +125,10 @@ function ResetSystemPanel() {
 }
 
 /* Scene Info POC setup - a checklist of the steps */
-function SceneInfoSetup() {
-    if (document.getElementById('scene-info')) {
+function SceneInfoSetup() 
+{
+    if (document.getElementById('scene-info')) 
+    {
         toggleListItems();
         // add a button the #header to toggle #scene-info visibility
         const header = document.getElementById('header');

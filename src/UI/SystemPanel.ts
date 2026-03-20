@@ -22,7 +22,7 @@ export function SystemPanelInit() {
             if (transform_name.trim() === "System Panel") {
                 $dialog.dialog("open");
             }
-            if (transform_name.trim() === "Machine OFF Button") {
+            if (transform_name.trim() === "HLM Machine OFF Button") {
                 $dialog.dialog("close");
             }
         });
