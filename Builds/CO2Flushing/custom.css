@@ -159,6 +159,10 @@ button:first-child:focus {
 #scene-info h4.show:before {
     transform: rotate(90deg);
 }
+#scene-info h5 {
+    font-size: 0.9em;
+    font-weight: bold;
+}
 ul.list-items-container {
     list-style-type: none;
     padding: 0;
