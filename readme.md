@@ -61,6 +61,29 @@ Refer to the latest Unity engine documentation if another version of Unity edito
 
 These **must correspond** to the functions called in the **Unity Project** `Assets\Plugins\JSLibs`.
 
+## CUSTOM DEVELOPMENT ##
+
+Custom scripts for activities should be put wuth the `uploads/Build` in the associated project.
+
+### Checklist events ###
+
+To listen for checklist events, add `data-event` to the list element:
+
+```html
+
+<li title="Click on the sink area" data-event="HandHygiene">Perform hand hygiene</li>
+
+```
+
+These can be handled in `custom.js` e.g:
+
+```js
+
+// look for list item with data-event matching objectName
+const listItem = document.querySelector(`#scene-info li[data-event="${objectName}"]`);
+
+```
+
 ## DEPLOYMENT ##
 
 ### GitHub Pages Option ###
