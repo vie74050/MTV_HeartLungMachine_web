@@ -183,8 +183,7 @@ ul.list-items-container li {
     margin: 1.2em auto;
     line-height: 1.2em;
 }
-ul.list-items-container li:has([title])::before {
-   
+ul.list-items-container li::before {
     content: "i";
     display: inline-block;
     width: 1.2em;
