@@ -166,7 +166,7 @@ button:first-child:focus {
 ul.list-items-container {
     list-style-type: none;
     padding: 0;
-    margin: 0.5em 1.2em;
+    margin: 0.5em 0.5em 1em 0em;
     display: none;
     flex-direction: column;
     gap: 4px;
@@ -184,21 +184,24 @@ ul.list-items-container li {
     line-height: 1.2em;
 }
 ul.list-items-container li::before {
-    content: "";
+    content: "i";
     display: inline-block;
     width: 1.2em;
     height: 1.2em;
-    border: 1px solid #000000;
-    border-radius: 0.6em;
-    background: white;
+    border: 2px solid #63b900;
+    border-radius: 50%;
+    background: #79e100;
     margin-right: 0.5em;
     position: absolute;
     left: 0;
-    top: 50%;
+    top: 40%;
     transform: translateY(-50%);
-    font-size: 1.2em;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.4em;
+    font-weight: 800;
+    color: white;
     text-align: center;
-    line-height: 1.2em;
+    line-height: 1em;
 }
 ul.list-items-container li._checked::before {
     content: "✔";
