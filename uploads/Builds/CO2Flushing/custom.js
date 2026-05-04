@@ -132,22 +132,40 @@ function SceneInfoSetup()
         toggleListItems();
         // add a button the #header to toggle #scene-info visibility
         const header = document.getElementById('header');
-        const toggleSceneInfoButton = document.createElement('button');
-        toggleSceneInfoButton.id = 'toggle_scene_info_btn';
-        toggleSceneInfoButton.className = 'right';
-        toggleSceneInfoButton.innerHTML = 'Scene Info <span class="ui-button-icon ui-icon ui-icon-closethick"></span>';
-        header.appendChild(toggleSceneInfoButton);
-        toggleSceneInfoButton.addEventListener('click', function() {
-            const sceneInfo = document.getElementById('scene-info');
-            if (sceneInfo) {
-                sceneInfo.classList.toggle('hidden');
-                if (sceneInfo.classList.contains('hidden')) {
-                    toggleSceneInfoButton.innerHTML = 'Scene Info 🗖';
-                } else {
-                    toggleSceneInfoButton.innerHTML = 'Scene Info <span class="ui-button-icon ui-icon ui-icon-closethick"></span>';
-                }
+        const toggleSceneInfoButton = document.getElementById('toggle_scene_info_btn');
+       
+    }
+}
+function togglePanelBtnHandler(btn,btnText, panelId) {
+    const panel = document.getElementById(panelId);
+    const btnTextElement = btn;
+    if (panel) {
+        //console.log(`Toggling panel ${panelId}`);
+        // hide other ._toggle-panel-content except panelId
+        const otherPanels = document.querySelectorAll('._toggle-panel-content');
+        const otherBtns = document.querySelectorAll('._toggle-grp');
+
+        otherPanels.forEach(otherPanel => {
+            if (otherPanel.id !== panelId) {
+                otherPanel.classList.add('hidden');
             }
         });
+        otherBtns.forEach(otherBtn => {
+            if (otherBtn !== btn) {
+                otherBtn.classList.remove('active');
+            }
+        });
+
+        panel.classList.toggle('hidden');
+        btnTextElement.classList.toggle('active');
+        /*
+        if(panel.classList.contains('hidden')) 
+        {
+            btnTextElement.innerHTML = `${btnText} 🗖`;
+        } else {
+            btnTextElement.innerHTML = `${btnText} <span class="ui-button-icon ui-icon ui-icon-closethick"></span>`;
+        }
+        */
     }
 }
 

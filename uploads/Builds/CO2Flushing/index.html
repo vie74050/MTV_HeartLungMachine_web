@@ -26,84 +26,22 @@
 
   <body class="d2l-edittable">
     <div id="header" class="mmd instructions">
-        <button id="reset-scene-button">Reset Scene</button>&nbsp;&nbsp;
+        <button id="reset-scene-button">Reset Scene</button>
+        <span class="right btn-group btn-group-toggle">
+          <button 
+            id="toggle_quick-start-guide_btn" 
+            class="btn _toggle-grp active" 
+            title="User Interface Guide toggle open/close"
+            onclick="togglePanelBtnHandler(this,'UI Guide', 'quick-start-guide')">UI Guide</button>
+          <button 
+            id="toggle_scene-info_btn" 
+            class="btn _toggle-grp " 
+            title="Scene Information toggle open/close"
+            onclick="togglePanelBtnHandler(this,'Scene Info', 'scene-info')">Scene Info</button>
+        </span>
+        
     </div>
-    <div id="scene-info">
-      <p>This is a prototype of the CO2 flushing process.  Refer to the 
-        <a href="https://bcit365-my.sharepoint.com/:w:/g/personal/vienna_ly_bcit_ca/IQBFWvxtPDivQKCuXGgNWSOpAX1tE_S1ILPCAuwGEb70OFg?e=gCSfnQ" target="_blank" title="BCIT document for BCIT internal access only">CO2 Flushing document &#128471;</a> 
-        
-        provided by the instructor for more information. 
-      </p>
-      <p>
-      <a href="https://github.com/users/vie74050/projects/7/views/7" target="_blank" class="small" title="view project board">v 2026.04.27 &#128471;</a>      
-      </p>
-      
-      <h3>Overview</h3>
-      
-      <h4 >Phase 1: Set up</h4>
-      <ul class="list-items-container">
-        <li title="Click on the sink area">Perform hand hygiene</li>
-        <li title="Drag & drop the filter from the supply line">Attach bacterial air filter to the perfusion adapter on the CO<sub>2</sub> tank </li>
-        <li title="Click on the 3-way stopcock until it is in the open position">Ensure three-way stop cock open to circuit. </li>
-        <li title="Drag the CO2 supply line to the stopcock">Using aseptic technique, connect the bacterial air filter to the arterial line pressure isolator three-way stop cock</li>
-        <li title="Click on the stopcock to adjust it">Ensure three-way stop cock is open to circuit</li>
-        <li title="Click on gas tank and set the flow rate on the flow regulator">Set the CO<sub>2</sub> to 6 LPM</li>
-        
-      </ul>
-
-      <h4>Phase 2: Oxygenator, Pump, and Reservoir Flush</h4>
-      
-      <ul class="list-items-container">
-        <h5>Direct CO<sub>2</sub> retrograde through the Oxygenator</h5>
-        <li title="Pick up a clamp from the IV pole and move it to the arterial line, proximal to where CO2 enters the CPB circuit #1">Clamp AV loop</li>
-      
-        <h5>Isolate flow to oxygenator -> pump -> reservoir only</h5>
-        <li title="Pick up a clamp from the IV pole and move it to the cardioplegia line">Clamp blood cardioplegia 1/4" line</li>
-        <li title="Pick up a clamp from the IV pole and move it to the recirculation line(s)">Clamp <b>all</b> 1/4' recirculation lines</li>
-        <li title="Click on the manifold stopcock to turn to the close position">Close manifold</li>
-        <li title="Click on the Robert clamp on the purge line to close position">Close  oxygenator pre-membrane de-airing purge line</li>
-        <li>Allow 2 minutes of CO<sub>2</sub> flushing.</li>
-      </ul>
-
-      <h4>Phase 3: AV Loop Flush</h4>
-      <ul class="list-items-container">
-        <h5>Direct CO<sub>2</sub> to AV Loop</h5>
-        <li title="Click to pick up the clamp and move it to the arterial line, distal to where CO2 enters the CPB circuit #1">Move clamp <b>distal</b> to where CO2 entry point on arterial line</li>
-        <li>Allow 30-45 seconds flushing</li>
-        <li title="Click to pick up the clamp and move it proximal to where CO2 enters the CPB circuit #1">Return the clamp to proximal position on the arterial line</li>
-      </ul>
-      
-      <h4>Phase 4: Cardioplegia Circuit Flush</h4>
-      <ul class="list-items-container">
-        <h5>Direct CO<sub>2</sub> to Cardioplegia via Oxygenator</h5>
-        
-        <li title="Click to pick up the clamp and move it to the oxygenator inlet">Remove blood cardioplegia clamp and apply to oxygenator <b>inlet</b></li>
-        <li>Allow 1 minute of CO<sub>2</sub> flushing</li>
-      </ul>
-
-      <h4>Phase 5: Air Purge</h4>
-      <ul class="list-items-container">
-        <li title="Click to open the caps on the cardioplegia crystalloid fluid line">Using aseptic technique, loosen caps on cardioplegia lines to purge air (~ 15 seconds)</li>
-        <li title="Click to close the caps on the cardioplegia crystalloid fluid line">Re-secure caps</li>
-      </ul>
-
-      <h4>Phase 6: Final Flush &amp; Re-establish Circuit</h4>
-      <ul class="list-items-container">
-        <li title="Click the Robert clamp on the purge line to open position">Open oxygenator pre-membrane de-airing purge line </li>
-        <li title="Click the manifold stopcock to open position">Open manifold</li>
-        <li title="Click the clamp on the recirculation line(s) and move it back to the IV Pole">Remove all 1/4" recirculation line clamps</li>
-        <li title="Click the clamp on the cardioplegia line and move it back to the IV Pole">Remove oxygenator inlet clamp</li>
-        <li title="Click the clamp on the arterial line and move it back to the IV Pole">Remove arterial line clamp</li>
-      </ul>
-
-      <h4>Phase 7: Completion</h4>
-      <ul class="list-items-container">
-        <li title="Click on the tank regulator">Turn off CO<sub>2</sub>, and fully close tank regulator</li>
-        <li title="Drag the bacterial filter to the bin">Remove and discard bacterial filter</li>
-        <li title="Drag the sterile cap to the three-way stopcock">Aseptically recap three-way stopcock with sterile cap</li>
-      </ul>
-      
-    </div>
+    
     <div id="system_panel">
       <!-- System panel Main menu -->
       <section id="system_main_menu" class="panel_page ">
@@ -216,6 +154,146 @@
           </div>
       </section>      
     </div>
-   
+
+    <div id="scene-info" class="hidden _toggle-panel-content">
+      <p>This is a prototype of the CO2 flushing process.  Refer to the 
+        <a href="https://bcit365-my.sharepoint.com/:w:/g/personal/vienna_ly_bcit_ca/IQBFWvxtPDivQKCuXGgNWSOpAX1tE_S1ILPCAuwGEb70OFg?e=gCSfnQ" target="_blank" title="BCIT document for BCIT internal access only">CO2 Flushing document &#128471;</a> 
+        
+        provided by the instructor for more information. 
+      </p>
+      <p>
+      <a href="https://github.com/users/vie74050/projects/7/views/7" target="_blank" class="small" title="view project board">v 2026.04.27 &#128471;</a>      
+      </p>
+      
+      <h3>Overview</h3>
+      
+      <h4 >Phase 1: Set up</h4>
+      <ul class="list-items-container">
+        <li title="Click on the sink area">Perform hand hygiene</li>
+        <li title="Drag & drop the filter from the supply line">Attach bacterial air filter to the perfusion adapter on the CO<sub>2</sub> tank </li>
+        <li title="Click on the 3-way stopcock until it is in the open position">Ensure three-way stop cock open to circuit. </li>
+        <li title="Drag the CO2 supply line to the stopcock">Using aseptic technique, connect the bacterial air filter to the arterial line pressure isolator three-way stop cock</li>
+        <li title="Click on the stopcock to adjust it">Ensure three-way stop cock is open to circuit</li>
+        <li title="Click on gas tank and set the flow rate on the flow regulator">Set the CO<sub>2</sub> to 6 LPM</li>
+        
+      </ul>
+
+      <h4>Phase 2: Oxygenator, Pump, and Reservoir Flush</h4>
+      
+      <ul class="list-items-container">
+        <h5>Direct CO<sub>2</sub> retrograde through the Oxygenator</h5>
+        <li title="Pick up a clamp from the IV pole and move it to the arterial line, proximal to where CO2 enters the CPB circuit #1">Clamp AV loop</li>
+      
+        <h5>Isolate flow to oxygenator -> pump -> reservoir only</h5>
+        <li title="Pick up a clamp from the IV pole and move it to the cardioplegia line">Clamp blood cardioplegia 1/4" line</li>
+        <li title="Pick up a clamp from the IV pole and move it to the recirculation line(s)">Clamp <b>all</b> 1/4' recirculation lines</li>
+        <li title="Click on the manifold stopcock to turn to the close position">Close manifold</li>
+        <li title="Click on the Robert clamp on the purge line to close position">Close  oxygenator pre-membrane de-airing purge line</li>
+        <li>Allow 2 minutes of CO<sub>2</sub> flushing.</li>
+      </ul>
+
+      <h4>Phase 3: AV Loop Flush</h4>
+      <ul class="list-items-container">
+        <h5>Direct CO<sub>2</sub> to AV Loop</h5>
+        <li title="Click to pick up the clamp and move it to the arterial line, distal to where CO2 enters the CPB circuit #1">Move clamp <b>distal</b> to where CO2 entry point on arterial line</li>
+        <li>Allow 30-45 seconds flushing</li>
+        <li title="Click to pick up the clamp and move it proximal to where CO2 enters the CPB circuit #1">Return the clamp to proximal position on the arterial line</li>
+      </ul>
+      
+      <h4>Phase 4: Cardioplegia Circuit Flush</h4>
+      <ul class="list-items-container">
+        <h5>Direct CO<sub>2</sub> to Cardioplegia via Oxygenator</h5>
+        
+        <li title="Click to pick up the clamp and move it to the oxygenator inlet">Remove blood cardioplegia clamp and apply to oxygenator <b>inlet</b></li>
+        <li>Allow 1 minute of CO<sub>2</sub> flushing</li>
+      </ul>
+
+      <h4>Phase 5: Air Purge</h4>
+      <ul class="list-items-container">
+        <li title="Click to open the caps on the cardioplegia crystalloid fluid line">Using aseptic technique, loosen caps on cardioplegia lines to purge air (~ 15 seconds)</li>
+        <li title="Click to close the caps on the cardioplegia crystalloid fluid line">Re-secure caps</li>
+      </ul>
+
+      <h4>Phase 6: Final Flush &amp; Re-establish Circuit</h4>
+      <ul class="list-items-container">
+        <li title="Click the Robert clamp on the purge line to open position">Open oxygenator pre-membrane de-airing purge line </li>
+        <li title="Click the manifold stopcock to open position">Open manifold</li>
+        <li title="Click the clamp on the recirculation line(s) and move it back to the IV Pole">Remove all 1/4" recirculation line clamps</li>
+        <li title="Click the clamp on the cardioplegia line and move it back to the IV Pole">Remove oxygenator inlet clamp</li>
+        <li title="Click the clamp on the arterial line and move it back to the IV Pole">Remove arterial line clamp</li>
+      </ul>
+
+      <h4>Phase 7: Completion</h4>
+      <ul class="list-items-container">
+        <li title="Click on the tank regulator">Turn off CO<sub>2</sub>, and fully close tank regulator</li>
+        <li title="Drag the bacterial filter to the bin">Remove and discard bacterial filter</li>
+        <li title="Drag the sterile cap to the three-way stopcock">Aseptically recap three-way stopcock with sterile cap</li>
+      </ul>
+      
+    </div>
+    <div id="quick-start-guide" class="_toggle-panel-content">
+      <h2>User Interface Guide </h2>
+      <p class="small text-center">🖥️ This is a 3D webGL application, tested on Chrome Version 146.0.7680.180 and Firefox 149.0.2</p>
+      
+      <h3>Interactable objects</h3>
+      <p>Move your cursor over objects in the scene. When an object is interactive, the cursor will change to indicate the type of action available:
+      
+      <p>
+        <div class="two-column-container">
+          <p><img src="images/pointer.png"> object has information associated</p>
+          <p><img src="images/pointer-click.png"> object can be clicked</p>
+          <p><img src="images/pointer-dragH.png"> object can be dragged horizontally</p>
+          <p><img src="images/pointer-drag.png"> object can be dragged in any direction</p>
+        </div>
+      </p>
+      
+      <p>
+        <span class="tip">Tip:</span> Interactable objects that are important to the task are bright <span class="tip">green</span>.</p>
+      
+      <h3>Camera Controls</h3>
+      <p>It is recommended to use a mouse ️to navigate the scene. You may also use the onscreen control panel, or keyboard for some camera movements.</p>  
+
+      <div style="display: flex; flex-direction: row; width: 80%; margin: auto;">
+        <p><img src="images/camControls.png"></p>
+        <p style="padding-left: 2em">
+          Click <img src="images/icon-cam.png"> to toggle open/close the controls menu.
+          <br><br>
+          <b>Orbit</b> 	Rotate the camera around scene  <br>
+          🖱️Right-click and drag <br>
+          ⌨️ A / D keys
+          <br><br>
+          <b>Pan</b>	Move the camera  <br>
+          🖱️Left-click and drag <br>
+          ⌨️ Arrow keys
+          <br><br>
+          <b>Zoom</b>	Move the camera closer or farther away <br>
+          🖱️ Scroll wheel <br>
+          ⌨️ W / S keys
+
+        </p>
+      </div>
+
+      <hr>
+     
+      <h3>Scene Controls</h3>
+      <ul>
+        <li><b>Reset Scene</b> button resets the scene to its original state.</li>
+        <li>The <b>Scene Info</b> panel outlines the CO₂ flushing steps, for reference. 
+          <br>
+          <span class="tip">Tip:</span> Click each phase to expand and hover over steps in the Scene Info for tooltips! 
+        </li>
+      </ul>
+          
+      <h3>CO2 Flow Control</h3>
+      <ul>
+        <li>Use Gas tank and flow meter to adjust the CO<sub>2</sub> flow rate.</li>
+        <li>Items from the cart can be dragged to position. Drag back to the cart or bin to reset the item.        
+        </li>
+        <li>Use the clamps from the IV pole to isolate different sections of the circuit for flushing.</li>
+        <li>Click on stopcocks, Robert clamps, and roller pump tubing to toggle their positions (open/close)</li>
+        <li>Click on the HLM power button on the base to use the monitor panel controls</li>        
+      </ul>
+
+    </div>
   </body>
 </html>
