@@ -216,12 +216,11 @@ ul.list-items-container li._checked::before {
 #quick-start-guide {
     position: absolute;
     width: 850px; height: 100%;
+    right: 0;
     max-width: 100%;
-    right: 35px;
     overflow-y: auto;
     background-color: #fff;
     padding: 1em;
-    font-size: 1em;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -259,3 +258,20 @@ button._toggle-grp.active::after {
     pointer-events: all;
     z-index: 9999;
 }
+
+/* mobile, media queries */
+
+@media screen and (max-width: 830px) {
+    :root {
+        --instructions-h: 2em;
+    }
+    .instructions,
+     #header button {
+        font-size: 20px;
+    }
+    ._toggle-panel-content {
+        font-size: 16px;
+    }
+    
+}
+
