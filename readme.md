@@ -97,7 +97,7 @@ For staging, the sources should point the `/uploads/src`.
 
 #### Production Release ####
 
-Use `npm run build:prod -- [year] [3D project name]`
+Use `npm run build:prod -- [year] [3D project name]`, i.e. `npm run build:prod -- 2026 Co2Flushing`
 
 1. Package any **custom** css and js in `uploads/Builds/[3D project name]`.
 1. For live, all sources should point to a minified release version, i.e.
