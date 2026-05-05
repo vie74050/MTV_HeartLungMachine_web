@@ -102,7 +102,7 @@ Use `npm run build:prod -- [year] [3D project name]`
 1. Package any **custom** css and js in `uploads/Builds/[3D project name]`.
 1. For live, all sources should point to a minified release version, i.e.
 
-- `uploads/src-2026` 
+- `uploads/src-2026`
 
 Conventionally, the release version is the year.
 
