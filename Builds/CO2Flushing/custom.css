@@ -9,7 +9,7 @@
     border: 4px solid black;
 }
 
-.panel_page {
+#system_panel .panel_page {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -18,28 +18,28 @@
     display: flex;
     flex-direction: column;
 }
-.panel_page.inactive {
+#system_panel .panel_page.inactive {
     display: none !important;
 } 
-.panel_page:not(.inactive):first-child {
+#system_panel .panel_page:not(.inactive):first-child {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4px;
 }
 
-.panel_area {
+#system_panel .panel_area {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
-.panel_page:first-child .panel_area {
+#system_panel .panel_page:first-child .panel_area {
     display: flex;
     flex-direction: column;
     height: 100px;
     width: 100%;
     background-color: #0077ff;
 }
-.panel_footer {
+#system_panel .panel_footer {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -49,19 +49,19 @@
     height: fit-content;
     font-size: 1.5em;
 }   
-.panel_area.btn{
+#system_panel .panel_area.btn{
     box-sizing: border-box;
     border: 4px solid transparent;
     padding: 0;
 }
-.panel_area.btn.active {
+#system_panel .panel_area.btn.active {
     background-color: #4a90e2;
     border: 4px solid red;
-}.panel_area.btn.active h3 {
+}#system_panel .panel_area.btn.active h3 {
     background-color: red;
     color: white;
 }
-button.btn {
+#system_panel button.btn {
     box-sizing: border-box;
     background-color: #6daff0;
     border: 4px solid transparent;
@@ -70,20 +70,20 @@ button.btn {
     text-decoration: none;
     border-radius: 10px;
 }
-button:first-child:focus {
+#system_panel button:first-child:focus {
     outline: none;
     box-shadow: none; /* Removes any browser-specific highlights */
 }
-.submenu .panel_area button.btn {
+#system_panel .submenu .panel_area button.btn {
     height: 100%;
     font-weight: bold;
 }
-.btn:not(.inactive):hover {
+#system_panel .btn:not(.inactive):hover {
     box-sizing: border-box;
     border: 4px solid white;
 }
 
-.panel_page h3 {
+#system_panel .panel_page h3 {
     font-size: large;
     font-weight: bold;
     text-align: left;
@@ -98,7 +98,7 @@ button:first-child:focus {
     width: 100%;
 }
 
-.panel_box {
+#system_panel .panel_box {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -108,7 +108,7 @@ button:first-child:focus {
     padding: 4px;
 }
 
-.panel_box span {
+#system_panel .panel_box span {
     height: 100%;
     width: 100%;
     flex: 1;
@@ -119,24 +119,24 @@ button:first-child:focus {
     align-items: center;
     justify-content: center;
 }
-.panel_box.list {
+#system_panel .panel_box.list {
     flex-direction: column;
     align-items: stretch;
 }
-.panel_box.list select:active, .panel_box.list select:focus {
+#system_panel .panel_box.list select:active, 
+#system_panel .panel_box.list select:focus {
     outline: none;
     box-shadow: none; /* Removes any browser-specific highlights */
     
 }
 
-/* Scene-Info */
+/* Scene-Info Panel*/
 #scene-info {
     position: absolute;
     width: 400px;
     max-height: 95vh;
     height: fit-content;
     right: 10px;
-    top: 35px;
     overflow-y: auto;
     background-color: #fff;
     padding: 1em;
@@ -211,3 +211,67 @@ ul.list-items-container li._checked::before {
     outline: 1px solid darkgreen;
     
 }
+
+/* Quick Start Guide Panel*/
+#quick-start-guide {
+    position: absolute;
+    width: 850px; height: 100%;
+    right: 0;
+    max-width: 100%;
+    overflow-y: auto;
+    background-color: #fff;
+    padding: 1em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#quick-start-guide h2 {
+    background-color: #153d63;
+    color: white;
+    padding-left: 1em;
+}
+#quick-start-guide h3 {
+    color: #153d63;
+    margin-top: 1.5em;
+}
+.two-column-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+}
+
+/* Toggle Button */
+button._toggle-grp::after {
+    content: " 🗖";
+}
+button._toggle-grp.active::after {
+    content: " ✕";
+}
+
+.tip {
+    background-color: #19ff18;
+    font-weight: bold;
+    padding: 0.5em;;
+    line-height: 4em;
+}
+
+._toggle-panel-content {
+    pointer-events: all;
+    z-index: 9999;
+}
+
+/* mobile, media queries */
+
+@media screen and (max-width: 830px) {
+    :root {
+        --instructions-h: 2em;
+    }
+    .instructions,
+     #header button {
+        font-size: 20px;
+    }
+    ._toggle-panel-content {
+        font-size: 16px;
+    }
+    
+}
+
