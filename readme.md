@@ -91,20 +91,18 @@ const listItem = document.querySelector(`#scene-info li[data-event="${objectName
 
 ### GitHub Pages Option ###
 
-Deploy bundle to `uploads` folder, use `npm run deploy`.  
-Webpack will package the bundles to `uploads`, and deploy to GitHub Pages (`gh-pages` branch).  
-
-To deploy to GitHub pages, us `np run deploy` which will run `build` and upload the `uploads` folder to remote `gh-pages` branch.
+To deploy to GitHub pages, use `npm run deploy` which will run `build` and upload the `uploads` folder to remote `gh-pages` branch.
 
 For staging, the sources should point the `/uploads/src`.
 
 #### Production Release ####
 
-1. Package any custom css and js in `uploads/Builds/[3D project name]`.
+Use `npm run build:prod -- [year] [3D project name]`
+
+1. Package any **custom** css and js in `uploads/Builds/[3D project name]`.
 1. For live, all sources should point to a minified release version, i.e.
 
-- `uploads/src-2026` or global files
-- `uploads/Builds/[3D project name]/custom-min-2026.css` for project-specific files  
+- `uploads/src-2026` 
 
 Conventionally, the release version is the year.
 
