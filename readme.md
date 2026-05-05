@@ -1,6 +1,6 @@
 # Unity Model Task Viewer - Heart Lung Machine #
 
-(c) 2023 May 4 Vienna Ly  
+(c) 2026 May 4 Vienna Ly  
 [![Creative Commons License](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 ## App description ##
@@ -9,18 +9,12 @@ Variant of BCIT Unity Task Viewer web handler for builds published by **MTV_iden
 
 This web handler will:
 
-- Set up all the required browser-side UI elements
 - Handle Unity scene loading and comms
-- Read HTML table for optional description overrides for items specified in table
+- Set up all the required browser-side UI elements
 
-## DEVELOPMENT ##
+### Unity Model (pre-development) ###
 
-Using npm and webpack. Use `npm install` to get started.
-
-- For dev, use `npm run start` for watch mode.
-- To updatet the code, build using `npm run build` will bundle the web scripts to `./uploads/src/`.  
-
-### Unity model ###
+The 3D asset is part of predevelopment, and managed in a separate repo for the project:
 
 **Unity Project** Repo: [gihub heartLungCo2Flushing](https://github.com/vie74050/heartLungCo2Flushing)
 
@@ -61,9 +55,18 @@ Refer to the latest Unity engine documentation if another version of Unity edito
 
 These **must correspond** to the functions called in the **Unity Project** `Assets\Plugins\JSLibs`.
 
-## CUSTOM DEVELOPMENT ##
+## DEVELOPMENT ##
 
-Custom scripts for activities should be put wuth the `uploads/Build` in the associated project.
+Using npm and webpack. Use `npm install` to get started.
+
+Using webpack will bundle src to `./uploads/src/`  
+
+- For dev, use `npm run dev` to webpack for development watch mode.
+- To stage or prod, use `npm run build` to bundle for production mode.
+
+## CUSTOM CONTENT DEVELOPMENT ##
+
+Custom scripts for activities should be put wuth the `uploads/Builds/[3D project name]` in the associated project.
 
 ### Checklist events ###
 
@@ -90,6 +93,20 @@ const listItem = document.querySelector(`#scene-info li[data-event="${objectName
 
 Deploy bundle to `uploads` folder, use `npm run deploy`.  
 Webpack will package the bundles to `uploads`, and deploy to GitHub Pages (`gh-pages` branch).  
+
+To deploy to GitHub pages, us `np run deploy` which will run `build` and upload the `uploads` folder to remote `gh-pages` branch.
+
+For staging, the sources should point the `/uploads/src`.
+
+#### Production Release ####
+
+1. Package any custom css and js in `uploads/Builds/[3D project name]`.
+1. For live, all sources should point to a minified release version, i.e.
+
+- `uploads/src-2026` or global files
+- `uploads/Builds/[3D project name]/custom-min-2026.css` for project-specific files  
+
+Conventionally, the release version is the year.
 
 ### BCIT LMS (Private - requires access) Option ###
 

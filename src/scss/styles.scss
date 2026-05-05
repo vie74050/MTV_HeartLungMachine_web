@@ -53,6 +53,16 @@ html, body {
     
 }
 
+a
+// Style for links that open in a new tab
+a[target="_blank"] {
+    color: #007acc; /* Customize the link color as needed */
+    text-decoration: none; /* Remove underline if desired */
+}
+a[target="_blank"]::after {
+    content: ' \1F5D7';   
+    font-size: large;
+}
 .ui-tooltip {
     opacity: 1;
 }
