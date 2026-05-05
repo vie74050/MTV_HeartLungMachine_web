@@ -1,6 +1,10 @@
 {
   "name": "mtv-heartlungmachine",
   "version": "1.0.0",
+  "engines": {
+    "node": "24.4.1 "
+  },
+
   "description": "Model Task Viewer - Heart Lung Machine",
   "scripts": {
     "start": "webpack --watch --config webpack.dev.js",
